@@ -1,0 +1,155 @@
+<div id='playerDiv'>
+    <style>
+        * {
+    font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes backgroundMove {
+    0% {background-color: rgb(162, 91, 243);}
+    25% {background-color: rgb(144, 79, 172);}
+    50% {background-color: fuchsia;}
+    75% {background-color: indianred;}
+    100% {background-color: rgb(162, 91, 243);}    
+}
+body {
+    /*width: 100%;*/
+    height: auto;
+    background: rgb(88, 87, 88);
+}
+
+h1 {
+    color: cornsilk;
+    text-align: center;
+
+}
+
+audio {
+    margin: 1rem;
+    
+}
+#playerDiv {
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+    width: 80%;
+    text-align: center;
+    animation-name: backgroundMove;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    border-radius: 10px;
+}
+
+#date-time {
+    color: cornsilk;
+}
+button:hover {
+    color: cornsilk;
+    background: darkslateblue;
+}
+
+button {
+    color:rgb(19, 19, 19);
+    background: rgb(0, 209, 164);
+    padding: .5rem;
+    border-radius: 10px;
+}
+footer {
+    color: cornsilk;
+    margin-top: 2rem;
+    text-align: center;
+    bottom: 0;
+}
+
+.activeBtn {
+    color: cornsilk;
+    background: darkslateblue;
+}
+
+    </style>
+        
+    <h1>Internet Radio</h1>
+    <div id="date-time"></div>
+    <h2 id="nowPlaying"></h2>
+    <audio id="radioPlayer" src="https://wtmd-ice.streamguys1.com/wtmd.mp3" type='audio/mpeg' controls>
+    </audio><br />
+    <button id="wtmd">WTMD.org</button>
+    <button id='wypr'>WYPR.org</button>
+    <button id="wnrn">WNRN.org</button>
+    <button id="livePhish">Live Phish</button>
+    <script>
+        // Date and Time
+function updateTime() {    
+    const today = new Date();
+    var displayTime = today.toLocaleTimeString();
+    var updateTimeDisplay = setInterval(dateTimeClock, 1000);
+    
+    function dateTimeClock() {
+        var upDate = new Date();
+        var displayTime = upDate.toLocaleTimeString();
+        document.getElementById("date-time").innerHTML = today.toDateString() + " | " + displayTime;
+    }
+}
+updateTime();
+
+
+
+const radioPlayer = document.querySelector('#radioPlayer');
+const wtmdBtn = document.querySelector('#wtmd');
+const wyprBtn = document.querySelector('#wypr');
+const wnrnBtn = document.querySelector('#wnrn');
+const phishBtn = document.querySelector('#livePhish');
+const nowPlaying = document.querySelector('#nowPlaying');
+radioPlayer.volume = 0.7; //set initial audio player volume to 0.7
+wyprBtn.addEventListener('click', changeStation2);
+wtmdBtn.addEventListener('click', changeStation1);
+wnrnBtn.addEventListener('click', changeStation3);
+phishBtn.addEventListener('click', changeStation4);
+
+function changeStation1() {
+    radioPlayer.src = "https://wtmd-ice.streamguys1.com/wtmd.mp3";
+    radioPlayer.type = "audio/mpeg";
+    radioPlayer.setAttribute('autoplay', true);
+    wtmdBtn.classList.add("activeBtn");
+    wyprBtn.classList.remove("activeBtn");
+    wnrnBtn.classList.remove("activeBtn");
+    phishBtn.classList.remove("activeBtn");
+    
+}
+
+function changeStation2() {
+    radioPlayer.src = "http://playerservices.streamtheworld.com/api/livestream-redirect/WYPR_HD1.mp3";
+    radioPlayer.type = "audio/mp4";
+    radioPlayer.setAttribute('autoplay', true);
+    wyprBtn.classList.add("activeBtn");
+    wtmdBtn.classList.remove("activeBtn");
+    wnrnBtn.classList.remove("activeBtn");
+    phishBtn.classList.remove("activeBtn");
+}
+
+function changeStation3() {
+    radioPlayer.src = "https://22113.live.streamtheworld.com/WNRNFM_128.mp3";
+    radioPlayer.type = "audio/mpeg";
+    radioPlayer.setAttribute('autoplay', true);
+    wnrnBtn.classList.add("activeBtn");
+    wyprBtn.classList.remove("activeBtn");
+    wtmdBtn.classList.remove("activeBtn");
+    phishBtn.classList.remove("activeBtn");
+}
+
+function changeStation4() {
+    radioPlayer.src = "https://radio.nugs.net/livephish";
+    radioPlayer.type = "audio/mpeg";
+    radioPlayer.setAttribute('autoplay', true);
+    phishBtn.classList.add("activeBtn");
+    wyprBtn.classList.remove("activeBtn");
+    wnrnBtn.classList.remove("activeBtn");
+    wtmdBtn.classList.remove("activeBtn");
+}
+
+document.onload(changeStation1());
+    </script>
+
+</div>
