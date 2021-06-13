@@ -1,4 +1,5 @@
 <div id='playerDiv'>
+    <!-- style from css -->
     <style>
         * {
     font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
@@ -69,7 +70,7 @@ footer {
 }
 
     </style>
-        
+    <!-- html for player -->
     <h1>Internet Radio</h1>
     <div id="date-time"></div>
     <h2 id="nowPlaying"></h2>
@@ -79,6 +80,7 @@ footer {
     <button id='wypr'>WYPR.org</button>
     <button id="wnrn">WNRN.org</button>
     <button id="livePhish">Live Phish</button>
+    <!-- javascript from radioApp.js -->
     <script>
         // Date and Time
 function updateTime() {    
@@ -151,5 +153,4 @@ function changeStation4() {
 
 document.onload(changeStation1());
     </script>
-
 </div>
