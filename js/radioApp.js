@@ -18,13 +18,13 @@ const radioPlayer = document.querySelector('#radioPlayer');
 const wtmdBtn = document.querySelector('#wtmd');
 const wyprBtn = document.querySelector('#wypr');
 const wnrnBtn = document.querySelector('#wnrn');
-const phishBtn = document.querySelector('#livePhish');
+const jempBtn = document.querySelector('#jempRadio');
 const nowPlaying = document.querySelector('#nowPlaying');
 radioPlayer.volume = 0.7; //set initial audio player volume to 0.7
 wyprBtn.addEventListener('click', changeStation2);
 wtmdBtn.addEventListener('click', changeStation1);
 wnrnBtn.addEventListener('click', changeStation3);
-phishBtn.addEventListener('click', changeStation4);
+jempBtn.addEventListener('click', changeStation4);
 
 function changeStation1() {
     radioPlayer.src = "https://wtmd-ice.streamguys1.com/wtmd.mp3";
@@ -33,7 +33,7 @@ function changeStation1() {
     wtmdBtn.classList.add("activeBtn");
     wyprBtn.classList.remove("activeBtn");
     wnrnBtn.classList.remove("activeBtn");
-    phishBtn.classList.remove("activeBtn");
+    jempBtn.classList.remove("activeBtn");
     
 }
 
@@ -44,7 +44,7 @@ function changeStation2() {
     wyprBtn.classList.add("activeBtn");
     wtmdBtn.classList.remove("activeBtn");
     wnrnBtn.classList.remove("activeBtn");
-    phishBtn.classList.remove("activeBtn");
+    jempBtn.classList.remove("activeBtn");
 }
 
 function changeStation3() {
@@ -54,14 +54,14 @@ function changeStation3() {
     wnrnBtn.classList.add("activeBtn");
     wyprBtn.classList.remove("activeBtn");
     wtmdBtn.classList.remove("activeBtn");
-    phishBtn.classList.remove("activeBtn");
+    jempBtn.classList.remove("activeBtn");
 }
 
 function changeStation4() {
-    radioPlayer.src = "https://radio.nugs.net/livephish";
+    radioPlayer.src = "https://streaming.radio.co/sd71de59b3/listen";
     radioPlayer.type = "audio/mpeg";
     radioPlayer.setAttribute('autoplay', true);
-    phishBtn.classList.add("activeBtn");
+    jempBtn.classList.add("activeBtn");
     wyprBtn.classList.remove("activeBtn");
     wnrnBtn.classList.remove("activeBtn");
     wtmdBtn.classList.remove("activeBtn");

@@ -78,8 +78,10 @@
     </audio><br />
     <button id="wtmd">WTMD.org</button>
     <button id='wypr'>WYPR.org</button>
+    <button id="jempRadio">JEMP Radio</button>
     <button id="wnrn">WNRN.org</button>
-    <button id="livePhish">Live Phish</button>
+    
+    <!-- <button id="livePhish">Live Phish</button> -->
     <!-- javascript from radioApp.js -->
     <script>
                 // Date and Time
@@ -102,13 +104,15 @@
         const wtmdBtn = document.querySelector('#wtmd');
         const wyprBtn = document.querySelector('#wypr');
         const wnrnBtn = document.querySelector('#wnrn');
-        const phishBtn = document.querySelector('#livePhish');
+        const jempBtn = document.querySelector('#jempRadio');
+        // const phishBtn = document.querySelector('#livePhish');
         const nowPlaying = document.querySelector('#nowPlaying');
         radioPlayer.volume = 0.7; //set initial audio player volume to 0.7
         wyprBtn.addEventListener('click', changeStation2);
         wtmdBtn.addEventListener('click', changeStation1);
         wnrnBtn.addEventListener('click', changeStation3);
-        phishBtn.addEventListener('click', changeStation4);
+        jempBtn.addEventListener('click', changeStation4);
+        // phishBtn.addEventListener('click', changeStation5);
 
         function changeStation1() {
             radioPlayer.src = "https://wtmd-ice.streamguys1.com/wtmd.mp3";
@@ -117,7 +121,7 @@
             wtmdBtn.classList.add("activeBtn");
             wyprBtn.classList.remove("activeBtn");
             wnrnBtn.classList.remove("activeBtn");
-            phishBtn.classList.remove("activeBtn");
+            jempBtn.classList.remove("activeBtn");
             
         }
 
@@ -128,7 +132,7 @@
             wyprBtn.classList.add("activeBtn");
             wtmdBtn.classList.remove("activeBtn");
             wnrnBtn.classList.remove("activeBtn");
-            phishBtn.classList.remove("activeBtn");
+            jempBtn.classList.remove("activeBtn");
         }
 
         function changeStation3() {
@@ -138,18 +142,30 @@
             wnrnBtn.classList.add("activeBtn");
             wyprBtn.classList.remove("activeBtn");
             wtmdBtn.classList.remove("activeBtn");
-            phishBtn.classList.remove("activeBtn");
+            jempBtn.classList.remove("activeBtn");
         }
 
         function changeStation4() {
-            radioPlayer.src = "https://radio.nugs.net/livephish";
+            radioPlayer.src = "https://streaming.radio.co/sd71de59b3/listen";
             radioPlayer.type = "audio/mpeg";
             radioPlayer.setAttribute('autoplay', true);
-            phishBtn.classList.add("activeBtn");
+            jempBtn.classList.add("activeBtn");
             wyprBtn.classList.remove("activeBtn");
             wnrnBtn.classList.remove("activeBtn");
             wtmdBtn.classList.remove("activeBtn");
         }
+
+        // function changeStation5() {
+        //     radioPlayer.src = "https://radio.nugs.net/livephish";
+        //     radioPlayer.type = "audio/mpeg";
+        //     radioPlayer.setAttribute('autoplay', true);
+        //     phishBtn.classList.add("activeBtn");
+        //     wyprBtn.classList.remove("activeBtn");
+        //     wnrnBtn.classList.remove("activeBtn");
+        //     wtmdBtn.classList.remove("activeBtn");
+        // }
+
+        
 
         document.onload(changeStation1());
     </script>
